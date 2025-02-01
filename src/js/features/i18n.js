@@ -1,6 +1,7 @@
 // 言語切り替え機能
 export const translations = {
     ja: {
+        // ナビゲーション
         home: 'ホーム',
         menu: 'お品書き',
         info: '店舗情報',
@@ -39,7 +40,24 @@ export const translations = {
         menu_tempura: '天ぷら定食',
         menu_tempura_desc: 'サクサクの天ぷらと共に',
         menu_tendon: '天丼',
-        menu_tendon_desc: 'ボリューム満点の天ぷらをのせて'
+        menu_tendon_desc: 'ボリューム満点の天ぷらをのせて',
+        // クーポン関連の翻訳
+        couponValidity: '有効期限：2025年2月1日～2月29日',
+        couponDiscount: '全品100円引き',
+        couponInstruction: 'ご注文時にスタッフへ画面をご提示ください',
+        couponTerm1: '1会計につき1回限り有効',
+        couponTerm2: '他のサービス券との併用不可',
+        couponTerm3: 'ランチタイムにもご利用いただけます',
+        couponStep1: 'ご注文時にスタッフへクーポン画面をご提示ください',
+        couponStep2: 'スタッフが画面を確認させていただきます',
+        couponStep3: '会計時に100円引きいたします',
+        couponNote1: 'クーポンは1会計につき1回限り有効です',
+        couponNote2: '他のサービス券やキャンペーンとの併用はできません',
+        couponNote3: 'クーポンの内容は予告なく変更される場合があります',
+        couponNote4: 'スクリーンショットでのご利用も可能です',
+        couponNote5: 'クーポンの転用や複製は固くお断りいたします',
+        nextCouponInfo1: '3月のクーポンは2月下旬に公開予定です',
+        nextCouponInfo2: 'お楽しみに！'
     },
     en: {
         home: 'Home',
@@ -80,7 +98,24 @@ export const translations = {
         menu_tempura: 'Tempura Set',
         menu_tempura_desc: 'Crispy tempura selection',
         menu_tendon: 'Tempura Bowl',
-        menu_tendon_desc: 'Generous serving of tempura on rice'
+        menu_tendon_desc: 'Generous serving of tempura on rice',
+        // Coupon translations
+        couponValidity: 'Valid: February 1-29, 2025',
+        couponDiscount: '¥100 OFF All Items',
+        couponInstruction: 'Please show this screen to our staff when ordering',
+        couponTerm1: 'Valid once per transaction',
+        couponTerm2: 'Cannot be combined with other offers',
+        couponTerm3: 'Valid during lunch hours',
+        couponStep1: 'Show this coupon screen to our staff when ordering',
+        couponStep2: 'Staff will verify the coupon',
+        couponStep3: '¥100 will be discounted at checkout',
+        couponNote1: 'Coupon is valid once per transaction',
+        couponNote2: 'Cannot be combined with other promotions or discounts',
+        couponNote3: 'Coupon terms may change without notice',
+        couponNote4: 'Screenshots are accepted',
+        couponNote5: 'Reproduction or transfer of coupons is strictly prohibited',
+        nextCouponInfo1: 'March coupons will be available in late February',
+        nextCouponInfo2: 'Stay tuned!'
     },
     zh: {
         home: '首页',
@@ -121,7 +156,24 @@ export const translations = {
         menu_tempura: '天妇罗定食',
         menu_tempura_desc: '香脆可口的天妇罗',
         menu_tendon: '天妇罗盖饭',
-        menu_tendon_desc: '满满的天妇罗配上香喷喷的米饭'
+        menu_tendon_desc: '满满的天妇罗配上香喷喷的米饭',
+        // 优惠券相关翻译
+        couponValidity: '有效期：2025年2月1日至2月29日',
+        couponDiscount: '全品优惠100日元',
+        couponInstruction: '点餐时请向店员出示此画面',
+        couponTerm1: '每笔交易限用一次',
+        couponTerm2: '不可与其他优惠同时使用',
+        couponTerm3: '午市时段同样有效',
+        couponStep1: '点餐时请向店员出示优惠券画面',
+        couponStep2: '店员将确认优惠券',
+        couponStep3: '结账时将优惠100日元',
+        couponNote1: '优惠券每笔交易限用一次',
+        couponNote2: '不可与其他优惠活动或折扣同时使用',
+        couponNote3: '优惠券内容可能会随时变更',
+        couponNote4: '可使用截图',
+        couponNote5: '严禁复制或转让优惠券',
+        nextCouponInfo1: '3月优惠券将于2月下旬公布',
+        nextCouponInfo2: '敬请期待！'
     }
 };
 
