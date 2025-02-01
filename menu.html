@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="片岡屋のお品書き。そば、うどん、天ぷら、うな重など、伝統の味をご提供しております。">
+    <title>お品書き | 片岡屋 - 大田原市の老舗そば屋</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+    <!-- 言語切替 -->
+    <div class="language-switcher">
+        <button data-lang="ja" class="active">日本語</button>
+        <button data-lang="en">English</button>
+        <button data-lang="zh">中文</button>
+    </div>
+
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>片岡屋</h1>
+            </div>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="home">ホーム</a></li>
+                <li><a href="menu.html" class="active" data-translate="menu">お品書き</a></li>
+                <li><a href="info.html" data-translate="info">店舗情報</a></li>
+                <li><a href="news.html" data-translate="news">お知らせ</a></li>
+                <li><a href="access.html" data-translate="access">アクセス</a></li>
+                <li><a href="coupon.html" data-translate="coupon">クーポン</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="menu-page">
+        <section class="menu-header">
+            <h2 data-translate="menu">お品書き</h2>
+            <p data-translate="menu_intro">創業100年の伝統の味をご堪能ください</p>
+        </section>
+
+        <!-- そば・うどん -->
+        <section class="menu-section">
+            <h3 data-translate="menu_soba_udon">そば・うどん</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="src/images/mori-soba.jpg" alt="もりそば" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4 data-translate="menu_mori">もりそば</h4>
+                        <p class="price">850円</p>
+                        <p class="description" data-translate="menu_mori_desc">季節の薬味と共に</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="src/images/zaru-soba.jpg" alt="ざるそば" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4>ざるそば</h4>
+                        <p class="price">880円</p>
+                        <p class="description">風味豊かな蕎麦の香り</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="src/images/kake-soba.jpg" alt="かけそば" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4>かけそば</h4>
+                        <p class="price">680円</p>
+                        <p class="description">温かい出汁でお召し上がりください</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- セットメニュー -->
+        <section class="menu-section">
+            <h3>セットメニュー</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="src/images/ebi-ten-set.jpg" alt="海老天丼セット" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4 data-translate="menu_ebi_ten">海老天丼セット</h4>
+                        <p class="price">1,200円</p>
+                        <p class="description" data-translate="menu_ebi_ten_desc">そば/うどん選べます</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="src/images/kakiage-set.jpg" alt="かき揚げ丼セット" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4 data-translate="menu_kakiage">かき揚げ丼セット</h4>
+                        <p class="price">1,100円</p>
+                        <p class="description" data-translate="menu_kakiage_desc">そば/うどん選べます</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="src/images/service-lunch.jpg" alt="サービスランチ" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4 data-translate="menu_lunch">サービスランチ</h4>
+                        <p class="price">1,300円</p>
+                        <p class="description" data-translate="menu_lunch_desc">天ぷら、そば/うどん、半ライス、お新香付き</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 天ぷら・丼物・重物 -->
+        <section class="menu-section">
+            <h3>天ぷら・丼物・重物</h3>
+            <div class="menu-grid">
+                <div class="menu-item featured">
+                    <img src="src/images/unaju.jpg" alt="うな重" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4 data-translate="menu_unaju">うな重</h4>
+                        <p class="price">4,200円</p>
+                        <p class="description" data-translate="menu_unaju_desc">秘伝のタレで仕上げた自慢の一品</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="src/images/tempura-teishoku.jpg" alt="天ぷら定食" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4 data-translate="menu_tempura">天ぷら定食</h4>
+                        <p class="price">1,500円</p>
+                        <p class="description" data-translate="menu_tempura_desc">サクサクの天ぷらと共に</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="src/images/tendon.jpg" alt="天丼" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4 data-translate="menu_tendon">天丼</h4>
+                        <p class="price">1,500円</p>
+                        <p class="description" data-translate="menu_tendon_desc">ボリューム満点の天ぷらをのせて</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>片岡屋</h3>
+                <p>〒324-0000 栃木県大田原市1-10-2</p>
+                <p>TEL: 0287-22-2138</p>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="menu.html">お品書き</a></li>
+                    <li><a href="info.html">店舗情報</a></li>
+                    <li><a href="news.html">お知らせ</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li><a href="coupon.html">クーポン</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 片岡屋 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- モバイル用電話ボタン -->
+    <a href="tel:0287222138" class="mobile-call-button">
+        お電話でのご予約はこちら
+        <small>0287-22-2138</small>
+    </a>
+
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html>

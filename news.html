@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="片岡屋からのお知らせ。営業時間の変更や季節のメニュー情報などをご案内しています。">
+    <title>お知らせ | 片岡屋 - 大田原市の老舗そば屋</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- 言語切替 -->
+    <div class="language-switcher">
+        <button data-lang="ja" class="active">日本語</button>
+        <button data-lang="en">English</button>
+        <button data-lang="zh">中文</button>
+    </div>
+
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>片岡屋</h1>
+            </div>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="menu.html">お品書き</a></li>
+                <li><a href="info.html">店舗情報</a></li>
+                <li><a href="news.html" class="active">お知らせ</a></li>
+                <li><a href="access.html">アクセス</a></li>
+                <li><a href="coupon.html">クーポン</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="news-page">
+        <h2>お知らせ</h2>
+
+        <!-- カテゴリーフィルター -->
+        <div class="news-filter">
+            <button class="filter-btn active" data-category="all">すべて</button>
+            <button class="filter-btn" data-category="important">重要なお知らせ</button>
+            <button class="filter-btn" data-category="event">イベント</button>
+            <button class="filter-btn" data-category="menu">メニュー</button>
+        </div>
+
+        <!-- お知らせ一覧 -->
+        <section class="news-list">
+            <article class="news-item" data-category="important">
+                <time datetime="2025-01-26">2025.01.26</time>
+                <span class="category">重要なお知らせ</span>
+                <h3>2月のお休みのお知らせ</h3>
+                <div class="news-content">
+                    <p>誠に勝手ながら、2月11日（火・祝）は終日休業とさせていただきます。</p>
+                    <p>ご不便をおかけいたしますが、何卒ご了承くださいますようお願い申し上げます。</p>
+                </div>
+            </article>
+
+            <article class="news-item" data-category="menu">
+                <time datetime="2025-01-20">2025.01.20</time>
+                <span class="category">メニュー</span>
+                <h3>2月限定クーポンのお知らせ</h3>
+                <div class="news-content">
+                    <p>2月中、全品100円引きクーポンをご利用いただけます。</p>
+                    <p>クーポンページからご確認いただけます。</p>
+                    <p>※他のサービス券との併用はできません。</p>
+                    <p><a href="coupon.html" class="btn-link">クーポンを見る</a></p>
+                </div>
+            </article>
+
+            <article class="news-item" data-category="important">
+                <time datetime="2025-01-15">2025.01.15</time>
+                <span class="category">重要なお知らせ</span>
+                <h3>営業時間変更のお知らせ</h3>
+                <div class="news-content">
+                    <p>1月20日より、ご予約がない場合の夜間営業は20時までとさせていただきます。</p>
+                    <p>なお、ご予約いただいているお客様は、従来通り21:30までご利用いただけます。</p>
+                </div>
+            </article>
+
+            <article class="news-item" data-category="event">
+                <time datetime="2025-01-10">2025.01.10</time>
+                <span class="category">イベント</span>
+                <h3>創業記念祭開催のお知らせ</h3>
+                <div class="news-content">
+                    <p>1月15日より1週間、創業記念祭を開催いたします。</p>
+                    <p>期間中は特別メニューをご用意し、お得な価格でご提供させていただきます。</p>
+                    <ul>
+                        <li>天ぷらそば・うどん 通常900円→800円</li>
+                        <li>かき揚げ丼セット 通常1,100円→1,000円</li>
+                        <li>うな重 通常4,200円→3,800円</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="news-item" data-category="menu">
+                <time datetime="2025-01-05">2025.01.05</time>
+                <span class="category">メニュー</span>
+                <h3>冬の新メニュー登場</h3>
+                <div class="news-content">
+                    <p>寒い季節にぴったりの、あったかメニューが登場しました。</p>
+                    <ul>
+                        <li>鴨南蛮そば 1,200円</li>
+                        <li>海老天カレーうどん 1,300円</li>
+                        <li>きのこ汁そば 980円</li>
+                    </ul>
+                    <p>期間限定メニューとなりますので、ぜひこの機会にお試しください。</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- ページネーション -->
+        <div class="pagination">
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>片岡屋</h3>
+                <p>〒324-0000 栃木県大田原市1-10-2</p>
+                <p>TEL: 0287-22-2138</p>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="menu.html">お品書き</a></li>
+                    <li><a href="info.html">店舗情報</a></li>
+                    <li><a href="news.html">お知らせ</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li><a href="coupon.html">クーポン</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 片岡屋 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- モバイル用電話ボタン -->
+    <a href="tel:0287222138" class="mobile-call-button">
+        お電話でのご予約はこちら
+        <small>0287-22-2138</small>
+    </a>
+
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
