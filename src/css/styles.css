@@ -429,22 +429,22 @@ section h2 {
 
 .home-info .info-section-block h3 {
     color: var(--text-color);
-    font-size: 1.2rem;
-    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
     font-weight: 500;
 }
 
-.home-info .info-section-block p {
-    font-size: 1.1rem;
+.home-info .info-section-block p,
+.home-info .facilities-list li,
+.home-info .note {
+    font-size: 1rem;
     margin: 0.5rem 0;
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .home-info .note {
-    font-size: 0.9rem;
     color: var(--secondary-color);
-    margin: 0.3rem 0;
 }
 
 .home-info .facilities-list {
@@ -456,8 +456,6 @@ section h2 {
 .home-info .facilities-list li {
     position: relative;
     padding-left: 1.2rem;
-    margin: 0.5rem 0;
-    line-height: 1.6;
 }
 
 .home-info .facilities-list li::before {
