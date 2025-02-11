@@ -1,0 +1,1981 @@
+﻿ TEST20250126/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── css/
+│   │   │   ├── components/
+│   │   │   ├── pages/
+│   │       └── styles.css
+│   │   ├── images/
+│   │   │   ├── mori-soba.jpg
+│   │   │   ├── restaurant-exterior.jpg
+│   │   │   ├── rice1.jpg
+│   │   │   ├── rice2.jpg
+│   │   │   ├── rice3.jpg
+│   │   │   ├── set1.jpg
+│   │   │   ├── set2.jpg
+│   │   │   ├── set3.jpg
+│   │   │   ├── slide1.jpg
+│   │   │   ├── slide2.jpg
+│   │   │   ├── slide3.jpg
+│   │   │   ├── soba3.jpg
+│   │   │   ├── store1.jpg
+│   │   │   ├── store2.jpg
+│   │   │   ├── zaru-soba.jpg
+│   │   │   ├── zashiki1_1.jpg
+│   │   │   ├── zashiki1_2.jpg
+│   │   │   ├── zashiki2_1.jpg
+│   │   │   ├── zashiki2_2.jpg
+│   │   │   ├── zashiki3_1.jpg
+│   │   │   ├── zashiki3_2.jpg
+│   │   │   ├── zashiki4_1.jpg
+│   │       └── zashiki4_2.jpg
+│       └── js/
+│       │   ├── components/
+│       │   │   ├── slider.js
+│       │       └── ui.js
+│       │   ├── features/
+│       │       └── i18n.js
+│           └── main.js
+│   ├── .gitattributes
+│   ├── access.html
+│   ├── coupon.html
+│   ├── index.html
+│   ├── info.html
+│   ├── menu.html
+    └── news.html
+
+======================================
+Files Content:
+======================================
+
+----- File: styles.css -----
+/* 現在のstyles.cssの内容をそのまま新しい場所にコピー */
+/* リセットCSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 基本スタイル */
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #4a4a4a;
+    --accent-color: #9B2335;
+    --bg-color: #f5f5f5;
+    --text-color: #333;
+    --border-color: #ddd;
+}
+
+body {
+    font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+    line-height: 1.7;
+    color: var(--text-color);
+    background: var(--bg-color);
+}
+
+/* 共通スタイル */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+h2 {
+    text-align: center;
+    margin: 2rem 0;
+    font-weight: normal;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--accent-color);
+}
+
+/* ヘッダー */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ナビゲーション */
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 80px;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: normal;
+    position: relative;
+}
+
+.logo h1::after {
+    content: 'KATAOKAYA';
+    display: block;
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    font-family: 'Times New Roman', serif;
+}
+
+/* 言語切替 */
+.language-switcher {
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+    display: flex;
+    gap: 5px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+}
+
+.language-switcher button {
+    padding: 8px 16px;
+    border: 2px solid var(--border-color);
+    background: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    min-width: 80px;
+    font-family: inherit;
+    position: relative;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.language-switcher button:hover {
+    background: #f8f8f8;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
+}
+
+.language-switcher button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.language-switcher button.active {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    font-weight: bold;
+}
+
+.language-switcher button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(155, 35, 53, 0.3);
+}
+
+.language-switcher button:focus:not(:focus-visible) {
+    box-shadow: none;
+}
+
+@media (max-width: 767px) {
+    .language-switcher {
+        padding: 5px;
+    }
+
+    .language-switcher button {
+        padding: 5px 10px;
+        min-width: 60px;
+        font-size: 0.8rem;
+    }
+}
+
+/* メインナビゲーション */
+.nav-links {
+    display: none;
+    list-style: none;
+}
+
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-color);
+}
+
+/* ハンバーガーメニュー */
+.menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--primary-color);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* スライダー */
+.hero-slider {
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+    background: #ddd;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+/* メニューページのスタイル */
+.menu-grid {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.menu-item {
+    background: white;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #ddd;
+}
+
+.menu-item-info {
+    padding: 1rem 0;
+}
+
+.price {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+/* ニュースページのスタイル */
+.news-list article {
+    background: white;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.news-list article:hover {
+    transform: translateX(5px);
+}
+
+.news-list time {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+.category {
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin: 0.5rem 0;
+    background: #f0f0f0;
+}
+
+/* アクセスページのスタイル */
+.google-map {
+    margin: 2rem 0;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.info-grid {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.info-block {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* クーポンページのスタイル */
+.coupon-card {
+    background: white;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 2px dashed var(--accent-color);
+    border-radius: 8px;
+    max-width: 600px;
+    position: relative;
+}
+
+.coupon-card::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px dashed var(--border-color);
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+.discount {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--accent-color);
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+/* フッター */
+footer {
+    background: var(--primary-color);
+    color: white;
+    padding: 3rem 1rem 6rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+}
+
+.footer-nav ul {
+    list-style: none;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--accent-color);
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* モバイル用電話ボタン */
+.mobile-call-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--accent-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    z-index: 100;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-call-button small {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* タブレット以上のスタイル */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        margin-left: 3rem;
+    }
+
+    .nav-links.active {
+        position: static;
+        flex-direction: row;
+        padding: 0;
+        box-shadow: none;
+        margin-left: 3rem;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mobile-call-button {
+        display: none;
+    }
+}
+
+/* デスクトップスタイル */
+@media (min-width: 1024px) {
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+----- End of styles.css -----
+
+----- File: slider.js -----
+// スライダーの実装
+export function initSlider() {
+    console.log('Initializing slider component...');
+
+    const slides = document.querySelectorAll('.hero-slider .slide');
+    if (slides.length === 0) {
+        console.warn('No slides found');
+        return;
+    }
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    console.log(`Found ${totalSlides} slides`);
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    // 自動スライド切り替えの設定
+    const interval = setInterval(nextSlide, 5000);
+
+    // スライダーのクリーンアップ関数
+    function cleanup() {
+        clearInterval(interval);
+    }
+
+    // ページ遷移時にクリーンアップ
+    window.addEventListener('unload', cleanup);
+
+    // 初期表示
+    showSlide(currentSlide);
+    console.log('Slider initialized successfully');
+
+    // クリーンアップ関数を返す（必要に応じて使用）
+    return cleanup;
+}
+----- End of slider.js -----
+
+----- File: ui.js -----
+// UI関連の機能をまとめたモジュール
+
+// メニュートグルの初期化
+function initMenuToggle() {
+    const menuButton = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (!menuButton || !navLinks) {
+        console.warn('Menu elements not found');
+        return;
+    }
+
+    menuButton.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuButton.setAttribute('aria-expanded', 
+            navLinks.classList.contains('active').toString()
+        );
+    });
+
+    // 画面外クリックでメニューを閉じる
+    document.addEventListener('click', (e) => {
+        if (!menuButton.contains(e.target) && !navLinks.contains(e.target)) {
+            navLinks.classList.remove('active');
+            menuButton.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
+// 画像の遅延読み込み
+export function initLazyLoading() {
+    console.log('Initializing lazy loading...');
+
+    if ('loading' in HTMLImageElement.prototype) {
+        // ネイティブの遅延読み込みをサポートしている場合
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            console.log(`Setting up lazy loading for: ${img.src}`);
+        });
+    } else {
+        // フォールバックの実装（必要に応じて）
+        console.log('Native lazy loading not supported, using fallback');
+    }
+}
+
+// メイン UI の初期化
+export function initUI() {
+    console.log('Initializing UI components...');
+
+    // メニュートグルの初期化
+    initMenuToggle();
+    console.log('Menu toggle initialized');
+
+    // アクセシビリティ対応
+    setupAccessibility();
+    console.log('Accessibility features initialized');
+
+    // 言語切り替え時のUIアップデート
+    window.addEventListener('languageChanged', (e) => {
+        console.log(`UI update triggered by language change to: ${e.detail.language}`);
+        updateUIForLanguage(e.detail.language);
+    });
+}
+
+// アクセシビリティ設定
+function setupAccessibility() {
+    // 言語切り替えボタンのARIA属性設定
+    document.querySelectorAll('.language-switcher button').forEach(button => {
+        button.setAttribute('role', 'button');
+        button.setAttribute('aria-pressed', 
+            button.classList.contains('active').toString()
+        );
+    });
+
+    // メニューボタンのARIA属性設定
+    const menuButton = document.querySelector('.menu-toggle');
+    if (menuButton) {
+        menuButton.setAttribute('aria-label', 'メニュー');
+        menuButton.setAttribute('aria-expanded', 'false');
+    }
+}
+
+// 言語変更時のUI更新
+function updateUIForLanguage(lang) {
+    // 方向性の設定（必要に応じて）
+    document.documentElement.dir = ['ar', 'he', 'fa'].includes(lang) ? 'rtl' : 'ltr';
+
+    // フォントファミリーの更新（必要に応じて）
+    const fontFamilies = {
+        ja: '"游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif',
+        zh: '"Microsoft YaHei", "微软雅黑", "SimSun", "宋体", sans-serif',
+        en: '"Times New Roman", serif'
+    };
+
+    if (fontFamilies[lang]) {
+        document.body.style.fontFamily = fontFamilies[lang];
+    }
+
+    // その他のUI要素の更新（必要に応じて）
+    console.log(`UI updated for language: ${lang}`);
+}
+----- End of ui.js -----
+
+----- File: i18n.js -----
+// 言語切り替え機能
+export const translations = {
+    ja: {
+        // ナビゲーション
+        home: 'ホーム',
+        menu: 'お品書き',
+        info: '店舗情報',
+        news: 'お知らせ',
+        access: 'アクセス',
+        coupon: 'クーポン',
+        address: '栃木県大田原市1-10-2',
+        phone: '電話：',
+        hours: '営業時間：',
+        hoursDetail: '月～土：11:00～14:00 / 18:00～21:30',
+        closed: '日曜・祝日：休業',
+        callButton: 'お電話でのご予約はこちら',
+        slide1Title: '伝統の味を守り続けて100年',
+        slide1Text: '大田原が誇る老舗そば屋',
+        slide2Title: '手打ちそばの真髄',
+        slide2Text: '丹念に打ち上げる極上の一杯',
+        slide3Title: '自慢のうな重',
+        slide3Text: '秘伝のタレで仕上げる極上の味わい',
+        // メニューページの翻訳
+        menu_intro: '創業100年の伝統の味をご堪能ください',
+        menu_soba_udon: 'そば・うどん',
+        menu_mori: 'もりそば',
+        menu_mori_desc: '季節の薬味と共に',
+        menu_zaru: 'ざるそば',
+        menu_zaru_desc: '風味豊かな蕎麦の香り',
+        menu_kake: 'かけそば',
+        menu_kake_desc: '温かい出汁でお召し上がりください',
+        menu_ebi_ten: '海老天丼セット',
+        menu_ebi_ten_desc: 'そば/うどん選べます',
+        menu_kakiage: 'かき揚げ丼セット',
+        menu_kakiage_desc: 'そば/うどん選べます',
+        menu_lunch: 'サービスランチ',
+        menu_lunch_desc: '天ぷら、そば/うどん、半ライス、お新香付き',
+        menu_unaju: 'うな重',
+        menu_unaju_desc: '秘伝のタレで仕上げた自慢の一品',
+        menu_tempura: '天ぷら定食',
+        menu_tempura_desc: 'サクサクの天ぷらと共に',
+        menu_tendon: '天丼',
+        menu_tendon_desc: 'ボリューム満点の天ぷらをのせて',
+        // クーポン関連の翻訳
+        couponValidity: '有効期限：2025年2月1日～2月29日',
+        couponDiscount: '全品100円引き',
+        couponInstruction: 'ご注文時にスタッフへ画面をご提示ください',
+        couponTerm1: '1会計につき1回限り有効',
+        couponTerm2: '他のサービス券との併用不可',
+        couponTerm3: 'ランチタイムにもご利用いただけます',
+        couponStep1: 'ご注文時にスタッフへクーポン画面をご提示ください',
+        couponStep2: 'スタッフが画面を確認させていただきます',
+        couponStep3: '会計時に100円引きいたします',
+        couponNote1: 'クーポンは1会計につき1回限り有効です',
+        couponNote2: '他のサービス券やキャンペーンとの併用はできません',
+        couponNote3: 'クーポンの内容は予告なく変更される場合があります',
+        couponNote4: 'スクリーンショットでのご利用も可能です',
+        couponNote5: 'クーポンの転用や複製は固くお断りいたします',
+        nextCouponInfo1: '3月のクーポンは2月下旬に公開予定です',
+        nextCouponInfo2: 'お楽しみに！'
+    },
+    en: {
+        home: 'Home',
+        menu: 'Menu',
+        info: 'Information',
+        news: 'News',
+        access: 'Access',
+        coupon: 'Coupon',
+        address: '1-10-2, Otawara City, Tochigi Prefecture',
+        phone: 'Tel: ',
+        hours: 'Business Hours:',
+        hoursDetail: 'Mon-Sat: 11:00-14:00 / 18:00-21:30',
+        closed: 'Closed: Sundays & Holidays',
+        callButton: 'Call for Reservation',
+        slide1Title: '100 Years of Traditional Taste',
+        slide1Text: 'A historic soba restaurant in Otawara',
+        slide2Title: 'The Art of Handmade Soba',
+        slide2Text: 'Carefully crafted noodles for the perfect bowl',
+        slide3Title: 'Special Grilled Eel',
+        slide3Text: 'Perfectly grilled with our secret sauce',
+        // Menu page translations
+        menu_intro: 'Enjoy our traditional taste, cultivated over 100 years',
+        menu_soba_udon: 'Soba & Udon',
+        menu_mori: 'Mori Soba',
+        menu_mori_desc: 'Served with seasonal condiments',
+        menu_zaru: 'Zaru Soba',
+        menu_zaru_desc: 'With rich soba aroma',
+        menu_kake: 'Kake Soba',
+        menu_kake_desc: 'Served with hot broth',
+        menu_ebi_ten: 'Tempura Shrimp Bowl Set',
+        menu_ebi_ten_desc: 'Choice of soba or udon noodles',
+        menu_kakiage: 'Mixed Tempura Bowl Set',
+        menu_kakiage_desc: 'Choice of soba or udon noodles',
+        menu_lunch: 'Service Lunch',
+        menu_lunch_desc: 'Includes tempura, noodles, rice, and pickles',
+        menu_unaju: 'Grilled Eel Bowl',
+        menu_unaju_desc: 'Our signature dish with special sauce',
+        menu_tempura: 'Tempura Set',
+        menu_tempura_desc: 'Crispy tempura selection',
+        menu_tendon: 'Tempura Bowl',
+        menu_tendon_desc: 'Generous serving of tempura on rice',
+        // Coupon translations
+        couponValidity: 'Valid: February 1-29, 2025',
+        couponDiscount: '¥100 OFF All Items',
+        couponInstruction: 'Please show this screen to our staff when ordering',
+        couponTerm1: 'Valid once per transaction',
+        couponTerm2: 'Cannot be combined with other offers',
+        couponTerm3: 'Valid during lunch hours',
+        couponStep1: 'Show this coupon screen to our staff when ordering',
+        couponStep2: 'Staff will verify the coupon',
+        couponStep3: '¥100 will be discounted at checkout',
+        couponNote1: 'Coupon is valid once per transaction',
+        couponNote2: 'Cannot be combined with other promotions or discounts',
+        couponNote3: 'Coupon terms may change without notice',
+        couponNote4: 'Screenshots are accepted',
+        couponNote5: 'Reproduction or transfer of coupons is strictly prohibited',
+        nextCouponInfo1: 'March coupons will be available in late February',
+        nextCouponInfo2: 'Stay tuned!'
+    },
+    zh: {
+        home: '首页',
+        menu: '菜单',
+        info: '店铺信息',
+        news: '新闻',
+        access: '位置',
+        coupon: '优惠券',
+        address: '枥木县大田原市1-10-2',
+        phone: '电话：',
+        hours: '营业时间：',
+        hoursDetail: '周一至周六：11:00～14:00 / 18:00～21:30',
+        closed: '周日及节假日休息',
+        callButton: '电话预约',
+        slide1Title: '传承百年之味',
+        slide1Text: '大田原引以为傲的传统荞麦面店',
+        slide2Title: '手工荞麦面的精髓',
+        slide2Text: '精心制作的极品面条',
+        slide3Title: '招牌鳗鱼饭',
+        slide3Text: '秘制酱汁烤制的顶级美味',
+        // 菜单页面翻译
+        menu_intro: '百年传统的美味佳肴',
+        menu_soba_udon: '荞麦面・乌冬面',
+        menu_mori: '荞麦冷面',
+        menu_mori_desc: '配以时令调味料',
+        menu_zaru: '笊篱荞麦面',
+        menu_zaru_desc: '浓郁荞麦香气',
+        menu_kake: '热汤荞麦面',
+        menu_kake_desc: '搭配温暖汤汁',
+        menu_ebi_ten: '天妇罗虾盖饭套餐',
+        menu_ebi_ten_desc: '可选择荞麦面或乌冬面',
+        menu_kakiage: '什锦天妇罗盖饭套餐',
+        menu_kakiage_desc: '可选择荞麦面或乌冬面',
+        menu_lunch: '午市套餐',
+        menu_lunch_desc: '包含天妇罗、面条、米饭和咸菜',
+        menu_unaju: '鳗鱼饭',
+        menu_unaju_desc: '秘制酱汁烤制的招牌美味',
+        menu_tempura: '天妇罗定食',
+        menu_tempura_desc: '香脆可口的天妇罗',
+        menu_tendon: '天妇罗盖饭',
+        menu_tendon_desc: '满满的天妇罗配上香喷喷的米饭',
+        // 优惠券相关翻译
+        couponValidity: '有效期：2025年2月1日至2月29日',
+        couponDiscount: '全品优惠100日元',
+        couponInstruction: '点餐时请向店员出示此画面',
+        couponTerm1: '每笔交易限用一次',
+        couponTerm2: '不可与其他优惠同时使用',
+        couponTerm3: '午市时段同样有效',
+        couponStep1: '点餐时请向店员出示优惠券画面',
+        couponStep2: '店员将确认优惠券',
+        couponStep3: '结账时将优惠100日元',
+        couponNote1: '优惠券每笔交易限用一次',
+        couponNote2: '不可与其他优惠活动或折扣同时使用',
+        couponNote3: '优惠券内容可能会随时变更',
+        couponNote4: '可使用截图',
+        couponNote5: '严禁复制或转让优惠券',
+        nextCouponInfo1: '3月优惠券将于2月下旬公布',
+        nextCouponInfo2: '敬请期待！'
+    }
+};
+
+export async function initLanguageSwitcher() {
+    console.log('Initializing language switcher...');
+
+    // 言語切り替えボタンを取得
+    const languageSwitcher = document.querySelector('.language-switcher');
+    if (!languageSwitcher) {
+        console.error('Language switcher container not found');
+        return;
+    }
+
+    // 直接クリックイベントをコンテナに設定（イベント委譲）
+    languageSwitcher.addEventListener('click', async (event) => {
+        const button = event.target.closest('button');
+        if (!button) return;
+
+        const lang = button.dataset.lang;
+        if (!lang || !translations[lang]) {
+            console.error(`Invalid language selected: ${lang}`);
+            return;
+        }
+
+        console.log(`Language button clicked: ${lang}`);
+        event.preventDefault();
+        event.stopPropagation();
+
+        try {
+            // DOMを更新
+            document.documentElement.lang = lang;
+            console.log(`Set HTML lang attribute to: ${lang}`);
+
+            // テキストの翻訳を実行
+            const elements = document.querySelectorAll('[data-translate]');
+            console.log(`Found ${elements.length} translatable elements`);
+
+            elements.forEach(element => {
+                const key = element.dataset.translate;
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                    console.log(`Updated element with key "${key}" to: ${translations[lang][key]}`);
+                } else {
+                    console.warn(`Translation key "${key}" not found for language "${lang}"`);
+                }
+            });
+
+            // ボタンの状態を更新
+            document.querySelectorAll('.language-switcher button').forEach(btn => {
+                const isActive = btn.dataset.lang === lang;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-pressed', isActive.toString());
+                console.log(`Updated button state for ${btn.dataset.lang}: ${isActive}`);
+            });
+
+            // ローカルストレージに保存
+            localStorage.setItem('preferred-language', lang);
+            console.log(`Language preference saved: ${lang}`);
+
+            // カスタムイベントを発火
+            window.dispatchEvent(new CustomEvent('languageChanged', {
+                detail: { language: lang }
+            }));
+
+        } catch (error) {
+            console.error('Error changing language:', error);
+        }
+    });
+
+    // 初期言語の設定
+    try {
+        const savedLang = localStorage.getItem('preferred-language');
+        const initialLang = (savedLang && translations[savedLang]) ? savedLang : 'ja';
+        document.documentElement.lang = initialLang;
+        
+        const elements = document.querySelectorAll('[data-translate]');
+        elements.forEach(element => {
+            const key = element.dataset.translate;
+            if (translations[initialLang][key]) {
+                element.textContent = translations[initialLang][key];
+            }
+        });
+
+        document.querySelectorAll('.language-switcher button').forEach(btn => {
+            const isActive = btn.dataset.lang === initialLang;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-pressed', isActive.toString());
+        });
+
+        console.log(`Initial language set to: ${initialLang}`);
+    } catch (error) {
+        console.error('Error setting initial language:', error);
+    }
+
+    console.log('Language switcher initialization complete');
+}
+----- End of i18n.js -----
+
+----- File: main.js -----
+// メインアプリケーションの初期化
+import { initSlider } from './components/slider.js';
+import { initLanguageSwitcher } from './features/i18n.js';
+import { initUI, initLazyLoading } from './components/ui.js';
+
+// 初期化関数
+async function initializeApp() {
+    try {
+        // 言語切り替え機能の初期化（最初に実行）
+        console.log('Initializing language switcher...');
+        await initLanguageSwitcher();
+        console.log('Language switcher initialized');
+
+        // その他の機能を初期化
+        if (document.querySelector('.hero-slider')) {
+            console.log('Initializing slider...');
+            initSlider();
+        }
+
+        console.log('Initializing UI...');
+        initUI();
+
+        console.log('Initializing lazy loading...');
+        initLazyLoading();
+
+        // 初期化完了後にイベントをディスパッチ
+        window.dispatchEvent(new CustomEvent('appInitialized'));
+        console.log('All features initialized successfully');
+    } catch (error) {
+        console.error('Error during initialization:', error);
+    }
+}
+
+// 即時実行関数でアプリを初期化
+(async function() {
+    // DOMContentLoadedを待つ
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded');
+            initializeApp();
+        });
+    } else {
+        // DOMがすでに読み込まれている場合は直接実行
+        console.log('DOM already loaded, initializing...');
+        initializeApp();
+    }
+})();
+
+// Service Workerの登録（オフライン対応）
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(err => {
+            console.error('ServiceWorker registration failed:', err);
+        });
+    });
+}
+----- End of main.js -----
+
+----- File: access.html -----
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="片岡屋へのアクセス案内。栃木県大田原市にある当店には、無料駐車場を10台分完備しております。">
+    <title>アクセス | 片岡屋 - 大田原市の老舗そば屋</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+    <!-- 言語切替 -->
+    <div class="language-switcher">
+        <button data-lang="ja" class="active">日本語</button>
+        <button data-lang="en">English</button>
+        <button data-lang="zh">中文</button>
+    </div>
+
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>片岡屋</h1>
+            </div>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="menu.html">お品書き</a></li>
+                <li><a href="info.html">店舗情報</a></li>
+                <li><a href="news.html">お知らせ</a></li>
+                <li><a href="access.html" class="active">アクセス</a></li>
+                <li><a href="coupon.html">クーポン</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="access-page">
+        <h2>アクセス</h2>
+
+        <!-- 地図セクション -->
+        <section class="map-section">
+            <!-- Google Mapの埋め込み -->
+            <div class="google-map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.67890!2d140.123456!3d36.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z54mH5bGx5bGL!5e0!3m2!1sja!2sjp!4v1234567890"
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- アクセス情報 -->
+        <section class="access-info">
+            <div class="info-grid">
+                <div class="info-block">
+                    <h3>所在地</h3>
+                    <p>〒324-0000</p>
+                    <p>栃木県大田原市1-10-2</p>
+                    <p class="note">※カーナビをご利用の場合は、電話番号（0287-22-2138）を入力してください。</p>
+                </div>
+
+                <div class="info-block">
+                    <h3>駐車場</h3>
+                    <p>10台（無料）</p>
+                    <p class="note">※店舗前に5台、裏手に5台ございます</p>
+                </div>
+
+                <div class="info-block">
+                    <h3>電車でお越しの場合</h3>
+                    <p>JR東北本線「大田原駅」より徒歩15分</p>
+                    <p>タクシーで約5分</p>
+                </div>
+
+                <div class="info-block">
+                    <h3>お車でお越しの場合</h3>
+                    <ul>
+                        <li>国道461号線沿い</li>
+                        <li>大田原市役所から車で5分</li>
+                        <li>西那須野IC から約20分</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 周辺案内 -->
+        <section class="area-guide">
+            <h3>周辺施設</h3>
+            <div class="area-grid">
+                <div class="area-item">
+                    <h4>観光スポット</h4>
+                    <ul>
+                        <li>大田原城址公園（徒歩10分）</li>
+                        <li>なかがわ水遊園（車で15分）</li>
+                        <li>那須野が原博物館（車で20分）</li>
+                    </ul>
+                </div>
+                <div class="area-item">
+                    <h4>公共施設</h4>
+                    <ul>
+                        <li>大田原市役所（徒歩7分）</li>
+                        <li>大田原市立図書館（徒歩12分）</li>
+                        <li>那須赤十字病院（車で10分）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>片岡屋</h3>
+                <p>〒324-0000 栃木県大田原市1-10-2</p>
+                <p>TEL: 0287-22-2138</p>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="menu.html">お品書き</a></li>
+                    <li><a href="info.html">店舗情報</a></li>
+                    <li><a href="news.html">お知らせ</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li><a href="coupon.html">クーポン</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 片岡屋 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- モバイル用電話ボタン -->
+    <a href="tel:0287222138" class="mobile-call-button">
+        お電話でのご予約はこちら
+        <small>0287-22-2138</small>
+    </a>
+
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html>
+----- End of access.html -----
+
+----- File: coupon.html -----
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="片岡屋の月替わりお得なクーポン。スマートフォンの画面をスタッフにご提示ください。">
+    <title>クーポン | 片岡屋 - 大田原市の老舗そば屋</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+    <!-- 言語切替 -->
+    <div class="language-switcher">
+        <button data-lang="ja" class="active">日本語</button>
+        <button data-lang="en">English</button>
+        <button data-lang="zh">中文</button>
+    </div>
+
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>片岡屋</h1>
+            </div>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="menu.html">お品書き</a></li>
+                <li><a href="info.html">店舗情報</a></li>
+                <li><a href="news.html">お知らせ</a></li>
+                <li><a href="access.html">アクセス</a></li>
+                <li><a href="coupon.html" class="active">クーポン</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="coupon-page">
+        <h2>クーポン</h2>
+
+        <!-- 現在のクーポン -->
+        <section class="current-coupon">
+            <div class="coupon-card">
+                <div class="coupon-header">
+                    <h3>2月限定クーポン</h3>
+                    <p class="validity" data-translate="couponValidity">有効期限：2025年2月1日～2月29日</p>
+                </div>
+                <div class="coupon-content">
+                    <p class="discount" data-translate="couponDiscount">全品100円引き</p>
+                    <div class="coupon-details">
+                        <p data-translate="couponInstruction">ご注文時にスタッフへ画面をご提示ください</p>
+                        <ul class="terms">
+                            <li data-translate="couponTerm1">1会計につき1回限り有効</li>
+                            <li data-translate="couponTerm2">他のサービス券との併用不可</li>
+                            <li data-translate="couponTerm3">ランチタイムにもご利用いただけます</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="coupon-footer">
+                    <p class="shop-info">片岡屋</p>
+                    <p class="coupon-code">CODE: FEB2025</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- クーポン利用方法 -->
+        <section class="coupon-guide">
+            <h3>ご利用方法</h3>
+            <div class="guide-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <p data-translate="couponStep1">ご注文時にスタッフへクーポン画面をご提示ください</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <p data-translate="couponStep2">スタッフが画面を確認させていただきます</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <p data-translate="couponStep3">会計時に100円引きいたします</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 注意事項 -->
+        <section class="coupon-notes">
+            <h3>ご利用上の注意</h3>
+            <div class="notes-content">
+                <ul>
+                    <li data-translate="couponNote1">クーポンは1会計につき1回限り有効です</li>
+                    <li data-translate="couponNote2">他のサービス券やキャンペーンとの併用はできません</li>
+                    <li data-translate="couponNote3">クーポンの内容は予告なく変更される場合があります</li>
+                    <li data-translate="couponNote4">スクリーンショットでのご利用も可能です</li>
+                    <li data-translate="couponNote5">クーポンの転用や複製は固くお断りいたします</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 次回予告 -->
+        <section class="next-coupon">
+            <h3>次回のお知らせ</h3>
+            <div class="next-coupon-info">
+                <p data-translate="nextCouponInfo1">3月のクーポンは2月下旬に公開予定です</p>
+                <p data-translate="nextCouponInfo2">お楽しみに！</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>片岡屋</h3>
+                <p>〒324-0000 栃木県大田原市1-10-2</p>
+                <p>TEL: 0287-22-2138</p>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="menu.html">お品書き</a></li>
+                    <li><a href="info.html">店舗情報</a></li>
+                    <li><a href="news.html">お知らせ</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li><a href="coupon.html">クーポン</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 片岡屋 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- モバイル用電話ボタン -->
+    <a href="tel:0287222138" class="mobile-call-button">
+        お電話でのご予約はこちら
+        <small>0287-22-2138</small>
+    </a>
+
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html>
+----- End of coupon.html -----
+
+----- File: index.html -----
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="栃木県大田原市の老舗そば屋・片岡屋。創業100年以上の伝統の味をご堪能ください。そば、うどん、天ぷら、うな重などをご提供しております。">
+    <title>片岡屋 - 大田原市の老舗そば屋 | Kataokaya - Traditional Japanese Restaurant</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA4_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA4_MEASUREMENT_ID');
+    </script>
+
+    <!-- Schema.org構造化データ -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "片岡屋",
+        "image": "src/images/restaurant-exterior.jpg",
+        "description": "創業100年以上の老舗そば屋",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1-10-2",
+            "addressLocality": "大田原市",
+            "addressRegion": "栃木県",
+            "postalCode": "",
+            "addressCountry": "JP"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "",
+            "longitude": ""
+        },
+        "telephone": "+81-287-22-2138",
+        "openingHours": [
+            "Mo-Sa 11:00-14:00",
+            "Mo-Sa 18:00-21:30"
+        ],
+        "servesCuisine": ["日本料理", "そば", "うどん"],
+        "priceRange": "¥¥"
+    }
+    </script>
+</head>
+<body>
+    <!-- 言語切替 -->
+    <div class="language-switcher" role="group" aria-label="言語選択">
+        <button data-lang="ja" class="active" type="button">日本語</button>
+        <button data-lang="en" type="button">English</button>
+        <button data-lang="zh" type="button">中文</button>
+    </div>
+
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>片岡屋</h1>
+            </div>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active" data-translate="home">ホーム</a></li>
+                <li><a href="menu.html" data-translate="menu">お品書き</a></li>
+                <li><a href="info.html" data-translate="info">店舗情報</a></li>
+                <li><a href="news.html" data-translate="news">お知らせ</a></li>
+                <li><a href="access.html" data-translate="access">アクセス</a></li>
+                <li><a href="coupon.html" data-translate="coupon">クーポン</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- メインビジュアル -->
+    <div class="hero-slider">
+        <div class="slide active">
+            <img src="src/images/slide1.jpg" alt="片岡屋の外観" loading="lazy">
+            <div class="slide-content">
+                <h2 data-translate="slide1Title">伝統の味を守り続けて100年</h2>
+                <p data-translate="slide1Text">大田原が誇る老舗そば屋</p>
+            </div>
+        </div>
+        <!-- 追加のスライド -->
+        <div class="slide">
+            <img src="src/images/slide2.jpg" alt="こだわりのそば" loading="lazy">
+            <div class="slide-content">
+                <h2 data-translate="slide2Title">手打ちそばの真髄</h2>
+                <p data-translate="slide2Text">丹念に打ち上げる極上の一杯</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="src/images/slide3.jpg" alt="うな重" loading="lazy">
+            <div class="slide-content">
+                <h2 data-translate="slide3Title">自慢のうな重</h2>
+                <p data-translate="slide3Text">秘伝のタレで仕上げる極上の味わい</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- お知らせ -->
+    <section class="news-section">
+        <h2>お知らせ</h2>
+        <div class="news-list">
+            <article>
+                <time>2025.01.26</time>
+                <h3>2月のお休みのお知らせ</h3>
+                <p>誠に勝手ながら、2月11日（火・祝）は終日休業とさせていただきます。</p>
+            </article>
+            <article>
+                <time>2025.01.20</time>
+                <h3>2月限定クーポンのお知らせ</h3>
+                <p>2月中、全品100円引きクーポンをご利用いただけます。</p>
+            </article>
+            <article>
+                <time>2025.01.15</time>
+                <h3>営業時間変更のお知らせ</h3>
+                <p>1月20日より、ご予約がない場合の夜間営業は20時までとさせていただきます。</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- 店舗情報 -->
+    <section class="info-section">
+        <h2>店舗情報</h2>
+        <div class="info-content">
+            <div class="info-text">
+                <p><span data-translate="address">栃木県大田原市1-10-2</span></p>
+                <p><span data-translate="phone">電話：</span><a href="tel:0287222138">0287-22-2138</a></p>
+                <p><span data-translate="hours">営業時間：</span></p>
+                <ul>
+                    <li><span data-translate="hoursDetail">月～土：11:00～14:00 / 18:00～21:30</span></li>
+                    <li>（ご予約がない場合20:00閉店）</li>
+                    <li><span data-translate="closed">日曜・祝日：休業</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>片岡屋</h3>
+                <p><span data-translate="address">栃木県大田原市1-10-2</span></p>
+                <p><span data-translate="phone">電話：</span>0287-22-2138</p>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html" data-translate="home">ホーム</a></li>
+                    <li><a href="menu.html" data-translate="menu">お品書き</a></li>
+                    <li><a href="info.html" data-translate="info">店舗情報</a></li>
+                    <li><a href="news.html" data-translate="news">お知らせ</a></li>
+                    <li><a href="access.html" data-translate="access">アクセス</a></li>
+                    <li><a href="coupon.html" data-translate="coupon">クーポン</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 片岡屋 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- モバイル用電話ボタン -->
+    <a href="tel:0287222138" class="mobile-call-button">
+        <span data-translate="callButton">お電話でのご予約はこちら</span>
+        <small>0287-22-2138</small>
+    </a>
+
+    <!-- JavaScriptモジュールの読み込み -->
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html>
+----- End of index.html -----
+
+----- File: info.html -----
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="創業100年以上の歴史を持つ片岡屋の店舗情報。大田原市で愛され続ける老舗そば屋です。">
+    <title>店舗情報 | 片岡屋 - 大田原市の老舗そば屋</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+    <!-- 言語切替 -->
+    <div class="language-switcher">
+        <button data-lang="ja" class="active">日本語</button>
+        <button data-lang="en">English</button>
+        <button data-lang="zh">中文</button>
+    </div>
+
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>片岡屋</h1>
+            </div>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="home">ホーム</a></li>
+                <li><a href="menu.html" data-translate="menu">お品書き</a></li>
+                <li><a href="info.html" class="active" data-translate="info">店舗情報</a></li>
+                <li><a href="news.html" data-translate="news">お知らせ</a></li>
+                <li><a href="access.html" data-translate="access">アクセス</a></li>
+                <li><a href="coupon.html" data-translate="coupon">クーポン</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="info-page">
+        <!-- 店舗写真スライダー -->
+        <section class="shop-photos">
+            <div class="photo-slider">
+                <div class="slide active">
+                    <img src="src/images/store1.jpg" alt="片岡屋の外観" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img src="src/images/store2.jpg" alt="店内の様子" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img src="src/images/zashiki1_1.jpg" alt="座敷の様子" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- 基本情報 -->
+        <section class="basic-info">
+            <h2>店舗情報</h2>
+            <div class="info-grid">
+                <div class="info-block">
+                    <h3>営業時間</h3>
+                    <p>月～土：11:00～14:00 / 18:00～21:30</p>
+                    <p class="note">※ご予約がない場合20:00閉店</p>
+                    <p>日曜・祝日：休業</p>
+                </div>
+                <div class="info-block">
+                    <h3>ご予約・お問い合わせ</h3>
+                    <p>電話：<a href="tel:0287222138">0287-22-2138</a></p>
+                    <p class="note">※ご予約は電話のみ承ります（日本語対応）</p>
+                </div>
+                <div class="info-block">
+                    <h3>設備・サービス</h3>
+                    <ul>
+                        <li>駐車場：10台（無料）</li>
+                        <li>喫煙：可</li>
+                        <li>座席：テーブル席・座敷</li>
+                        <li>個室：あり（要予約）</li>
+                        <li>テイクアウト：可（電話注文）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 当店の歴史 -->
+        <section class="history-section">
+            <h2>当店の歴史</h2>
+            <div class="history-content">
+                <div class="history-text">
+                    <p>創業100年以上の歴史を持つ当店は、大田原の地で代々そばの伝統を守り続けてまいりました。</p>
+                    <p>初代から受け継がれる製法と、地元の食材へのこだわりは今も変わることなく、多くのお客様に愛され続けております。</p>
+                    <p>手打ちそばと天ぷら、うなぎなど、日本の伝統的な味わいを今に伝える料理の数々を、ぜひご堪能ください。</p>
+                </div>
+                <div class="history-image">
+                    <img src="src/images/restaurant-exterior.jpg" alt="創業当時の片岡屋" loading="lazy">
+                    <p class="caption">創業当時の片岡屋（大正時代）</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- こだわり -->
+        <section class="features-section">
+            <h2>こだわり</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>手打ちそば</h3>
+                    <p>毎日店内で丁寧に打ち上げる自慢のそば。風味と腰の強さにこだわり続けています。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>天ぷら</h3>
+                    <p>季節の野菜を中心に、サクッと揚げた天ぷらは、そばとの相性も抜群です。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>うなぎ</h3>
+                    <p>創業以来受け継がれる秘伝のタレで仕上げる、当店自慢のうな重をご提供しています。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>片岡屋</h3>
+                <p>〒324-0000 栃木県大田原市1-10-2</p>
+                <p>TEL: 0287-22-2138</p>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="menu.html">お品書き</a></li>
+                    <li><a href="info.html">店舗情報</a></li>
+                    <li><a href="news.html">お知らせ</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li><a href="coupon.html">クーポン</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 片岡屋 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- モバイル用電話ボタン -->
+    <a href="tel:0287222138" class="mobile-call-button">
+        お電話でのご予約はこちら
+        <small>0287-22-2138</small>
+    </a>
+
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html>
+----- End of info.html -----
+
+----- File: menu.html -----
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="片岡屋のお品書き。そば、うどん、天ぷら、うな重など、伝統の味をご提供しております。">
+    <title>お品書き | 片岡屋 - 大田原市の老舗そば屋</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+    <!-- 言語切替 -->
+    <div class="language-switcher">
+        <button data-lang="ja" class="active">日本語</button>
+        <button data-lang="en">English</button>
+        <button data-lang="zh">中文</button>
+    </div>
+
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>片岡屋</h1>
+            </div>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html" data-translate="home">ホーム</a></li>
+                <li><a href="menu.html" class="active" data-translate="menu">お品書き</a></li>
+                <li><a href="info.html" data-translate="info">店舗情報</a></li>
+                <li><a href="news.html" data-translate="news">お知らせ</a></li>
+                <li><a href="access.html" data-translate="access">アクセス</a></li>
+                <li><a href="coupon.html" data-translate="coupon">クーポン</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="menu-page">
+        <section class="menu-header">
+            <h2 data-translate="menu">お品書き</h2>
+            <p data-translate="menu_intro">創業100年の伝統の味をご堪能ください</p>
+        </section>
+
+        <!-- そば・うどん -->
+        <section class="menu-section">
+            <h3 data-translate="menu_soba_udon">そば・うどん</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="src/images/mori-soba.jpg" alt="もりそば" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4 data-translate="menu_mori">もりそば</h4>
+                        <p class="price">850円</p>
+                        <p class="description" data-translate="menu_mori_desc">季節の薬味と共に</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="src/images/zaru-soba.jpg" alt="ざるそば" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4>ざるそば</h4>
+                        <p class="price">880円</p>
+                        <p class="description">風味豊かな蕎麦の香り</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="src/images/kake-soba.jpg" alt="かけそば" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4>かけそば</h4>
+                        <p class="price">680円</p>
+                        <p class="description">温かい出汁でお召し上がりください</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- セットメニュー -->
+        <section class="menu-section">
+            <h3>セットメニュー</h3>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="src/images/ebi-ten-set.jpg" alt="海老天丼セット" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4 data-translate="menu_ebi_ten">海老天丼セット</h4>
+                        <p class="price">1,200円</p>
+                        <p class="description" data-translate="menu_ebi_ten_desc">そば/うどん選べます</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="src/images/kakiage-set.jpg" alt="かき揚げ丼セット" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4 data-translate="menu_kakiage">かき揚げ丼セット</h4>
+                        <p class="price">1,100円</p>
+                        <p class="description" data-translate="menu_kakiage_desc">そば/うどん選べます</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="src/images/service-lunch.jpg" alt="サービスランチ" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4 data-translate="menu_lunch">サービスランチ</h4>
+                        <p class="price">1,300円</p>
+                        <p class="description" data-translate="menu_lunch_desc">天ぷら、そば/うどん、半ライス、お新香付き</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 天ぷら・丼物・重物 -->
+        <section class="menu-section">
+            <h3>天ぷら・丼物・重物</h3>
+            <div class="menu-grid">
+                <div class="menu-item featured">
+                    <img src="src/images/unaju.jpg" alt="うな重" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4 data-translate="menu_unaju">うな重</h4>
+                        <p class="price">4,200円</p>
+                        <p class="description" data-translate="menu_unaju_desc">秘伝のタレで仕上げた自慢の一品</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="src/images/tempura-teishoku.jpg" alt="天ぷら定食" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4 data-translate="menu_tempura">天ぷら定食</h4>
+                        <p class="price">1,500円</p>
+                        <p class="description" data-translate="menu_tempura_desc">サクサクの天ぷらと共に</p>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <img src="src/images/tendon.jpg" alt="天丼" loading="lazy">
+                    <div class="menu-item-info">
+                        <h4 data-translate="menu_tendon">天丼</h4>
+                        <p class="price">1,500円</p>
+                        <p class="description" data-translate="menu_tendon_desc">ボリューム満点の天ぷらをのせて</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>片岡屋</h3>
+                <p>〒324-0000 栃木県大田原市1-10-2</p>
+                <p>TEL: 0287-22-2138</p>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="menu.html">お品書き</a></li>
+                    <li><a href="info.html">店舗情報</a></li>
+                    <li><a href="news.html">お知らせ</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li><a href="coupon.html">クーポン</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 片岡屋 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- モバイル用電話ボタン -->
+    <a href="tel:0287222138" class="mobile-call-button">
+        お電話でのご予約はこちら
+        <small>0287-22-2138</small>
+    </a>
+
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html>
+----- End of menu.html -----
+
+----- File: news.html -----
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="片岡屋からのお知らせ。営業時間の変更や季節のメニュー情報などをご案内しています。">
+    <title>お知らせ | 片岡屋 - 大田原市の老舗そば屋</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+    <!-- 言語切替 -->
+    <div class="language-switcher">
+        <button data-lang="ja" class="active">日本語</button>
+        <button data-lang="en">English</button>
+        <button data-lang="zh">中文</button>
+    </div>
+
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>片岡屋</h1>
+            </div>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="menu.html">お品書き</a></li>
+                <li><a href="info.html">店舗情報</a></li>
+                <li><a href="news.html" class="active">お知らせ</a></li>
+                <li><a href="access.html">アクセス</a></li>
+                <li><a href="coupon.html">クーポン</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="news-page">
+        <h2>お知らせ</h2>
+
+        <!-- カテゴリーフィルター -->
+        <div class="news-filter">
+            <button class="filter-btn active" data-category="all">すべて</button>
+            <button class="filter-btn" data-category="important">重要なお知らせ</button>
+            <button class="filter-btn" data-category="event">イベント</button>
+            <button class="filter-btn" data-category="menu">メニュー</button>
+        </div>
+
+        <!-- お知らせ一覧 -->
+        <section class="news-list">
+            <article class="news-item" data-category="important">
+                <time datetime="2025-01-26">2025.01.26</time>
+                <span class="category">重要なお知らせ</span>
+                <h3>2月のお休みのお知らせ</h3>
+                <div class="news-content">
+                    <p>誠に勝手ながら、2月11日（火・祝）は終日休業とさせていただきます。</p>
+                    <p>ご不便をおかけいたしますが、何卒ご了承くださいますようお願い申し上げます。</p>
+                </div>
+            </article>
+
+            <article class="news-item" data-category="menu">
+                <time datetime="2025-01-20">2025.01.20</time>
+                <span class="category">メニュー</span>
+                <h3>2月限定クーポンのお知らせ</h3>
+                <div class="news-content">
+                    <p>2月中、全品100円引きクーポンをご利用いただけます。</p>
+                    <p>クーポンページからご確認いただけます。</p>
+                    <p>※他のサービス券との併用はできません。</p>
+                    <p><a href="coupon.html" class="btn-link">クーポンを見る</a></p>
+                </div>
+            </article>
+
+            <article class="news-item" data-category="important">
+                <time datetime="2025-01-15">2025.01.15</time>
+                <span class="category">重要なお知らせ</span>
+                <h3>営業時間変更のお知らせ</h3>
+                <div class="news-content">
+                    <p>1月20日より、ご予約がない場合の夜間営業は20時までとさせていただきます。</p>
+                    <p>なお、ご予約いただいているお客様は、従来通り21:30までご利用いただけます。</p>
+                </div>
+            </article>
+
+            <article class="news-item" data-category="event">
+                <time datetime="2025-01-10">2025.01.10</time>
+                <span class="category">イベント</span>
+                <h3>創業記念祭開催のお知らせ</h3>
+                <div class="news-content">
+                    <p>1月15日より1週間、創業記念祭を開催いたします。</p>
+                    <p>期間中は特別メニューをご用意し、お得な価格でご提供させていただきます。</p>
+                    <ul>
+                        <li>天ぷらそば・うどん 通常900円→800円</li>
+                        <li>かき揚げ丼セット 通常1,100円→1,000円</li>
+                        <li>うな重 通常4,200円→3,800円</li>
+                    </ul>
+                </div>
+            </article>
+
+            <article class="news-item" data-category="menu">
+                <time datetime="2025-01-05">2025.01.05</time>
+                <span class="category">メニュー</span>
+                <h3>冬の新メニュー登場</h3>
+                <div class="news-content">
+                    <p>寒い季節にぴったりの、あったかメニューが登場しました。</p>
+                    <ul>
+                        <li>鴨南蛮そば 1,200円</li>
+                        <li>海老天カレーうどん 1,300円</li>
+                        <li>きのこ汁そば 980円</li>
+                    </ul>
+                    <p>期間限定メニューとなりますので、ぜひこの機会にお試しください。</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- ページネーション -->
+        <div class="pagination">
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>片岡屋</h3>
+                <p>〒324-0000 栃木県大田原市1-10-2</p>
+                <p>TEL: 0287-22-2138</p>
+            </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="menu.html">お品書き</a></li>
+                    <li><a href="info.html">店舗情報</a></li>
+                    <li><a href="news.html">お知らせ</a></li>
+                    <li><a href="access.html">アクセス</a></li>
+                    <li><a href="coupon.html">クーポン</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 片岡屋 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- モバイル用電話ボタン -->
+    <a href="tel:0287222138" class="mobile-call-button">
+        お電話でのご予約はこちら
+        <small>0287-22-2138</small>
+    </a>
+
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html>
+----- End of news.html -----
+

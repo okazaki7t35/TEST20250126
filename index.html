@@ -48,18 +48,17 @@
     </script>
 </head>
 <body>
-    <!-- 言語切替 -->
-    <div class="language-switcher" role="group" aria-label="言語選択">
-        <button data-lang="ja" class="active" type="button">日本語</button>
-        <button data-lang="en" type="button">English</button>
-        <button data-lang="zh" type="button">中文</button>
-    </div>
-
     <!-- ヘッダー -->
     <header>
         <nav>
             <div class="logo">
                 <h1>片岡屋</h1>
+            </div>
+            <!-- 言語切替 -->
+            <div class="language-switcher" role="group" aria-label="言語選択">
+                <button data-lang="ja" class="active" type="button">日本語</button>
+                <button data-lang="en" type="button">English</button>
+                <button data-lang="zh" type="button">中文</button>
             </div>
             <button class="menu-toggle">
                 <span></span>
@@ -70,7 +69,6 @@
                 <li><a href="index.html" class="active" data-translate="home">ホーム</a></li>
                 <li><a href="menu.html" data-translate="menu">お品書き</a></li>
                 <li><a href="info.html" data-translate="info">店舗情報</a></li>
-                <li><a href="news.html" data-translate="news">お知らせ</a></li>
                 <li><a href="access.html" data-translate="access">アクセス</a></li>
                 <li><a href="coupon.html" data-translate="coupon">クーポン</a></li>
             </ul>
@@ -104,40 +102,50 @@
     </div>
 
     <!-- お知らせ -->
-    <section class="news-section">
+    <section class="home-notice">
         <h2>お知らせ</h2>
-        <div class="news-list">
-            <article>
-                <time>2025.01.26</time>
-                <h3>2月のお休みのお知らせ</h3>
-                <p>誠に勝手ながら、2月11日（火・祝）は終日休業とさせていただきます。</p>
-            </article>
-            <article>
-                <time>2025.01.20</time>
-                <h3>2月限定クーポンのお知らせ</h3>
-                <p>2月中、全品100円引きクーポンをご利用いただけます。</p>
-            </article>
-            <article>
-                <time>2025.01.15</time>
+        <div class="notice-container">
+            <article class="notice-card">
+                <time datetime="2025-02-11">2025.02.11</time>
                 <h3>営業時間変更のお知らせ</h3>
-                <p>1月20日より、ご予約がない場合の夜間営業は20時までとさせていただきます。</p>
+                <p>2月末まで、夜の営業時間を21:00までに変更させていただきます。</p>
+            </article>
+            <article class="notice-card">
+                <time datetime="2025-02-01">2025.02.01</time>
+                <h3>季節の限定メニュー登場</h3>
+                <p>春の訪れを感じる桜海老のかき揚げそばを期間限定で提供いたします。</p>
             </article>
         </div>
     </section>
 
     <!-- 店舗情報 -->
-    <section class="info-section">
+    <section class="info-section home-info">
         <h2>店舗情報</h2>
         <div class="info-content">
             <div class="info-text">
-                <p><span data-translate="address">栃木県大田原市1-10-2</span></p>
-                <p><span data-translate="phone">電話：</span><a href="tel:0287222138">0287-22-2138</a></p>
-                <p><span data-translate="hours">営業時間：</span></p>
-                <ul>
-                    <li><span data-translate="hoursDetail">月～土：11:00～14:00 / 18:00～21:30</span></li>
-                    <li>（ご予約がない場合20:00閉店）</li>
-                    <li><span data-translate="closed">日曜・祝日：休業</span></li>
-                </ul>
+                <div class="info-section-block">
+                    <h3>【営業時間】</h3>
+                    <p>月～土：11:00～14:00 / 18:00～21:30</p>
+                    <p class="note">※ご予約がない場合20:00閉店</p>
+                    <p>日曜・祝日：休業</p>
+                </div>
+
+                <div class="info-section-block">
+                    <h3>【ご予約・お問い合わせ】</h3>
+                    <p>電話：<a href="tel:0287222138">0287-22-2138</a></p>
+                    <p class="note">※ご予約は電話のみ承ります（日本語対応）</p>
+                </div>
+
+                <div class="info-section-block">
+                    <h3>【設備・サービス】</h3>
+                    <ul class="facilities-list">
+                        <li>駐車場：10台（無料）</li>
+                        <li>喫煙：可</li>
+                        <li>座席：テーブル席・座敷</li>
+                        <li>個室：あり（要予約）</li>
+                        <li>テイクアウト：可（電話注文）</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -155,7 +163,6 @@
                     <li><a href="index.html" data-translate="home">ホーム</a></li>
                     <li><a href="menu.html" data-translate="menu">お品書き</a></li>
                     <li><a href="info.html" data-translate="info">店舗情報</a></li>
-                    <li><a href="news.html" data-translate="news">お知らせ</a></li>
                     <li><a href="access.html" data-translate="access">アクセス</a></li>
                     <li><a href="coupon.html" data-translate="coupon">クーポン</a></li>
                 </ul>

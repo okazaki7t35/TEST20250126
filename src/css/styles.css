@@ -1,4 +1,3 @@
-/* 現在のstyles.cssの内容をそのまま新しい場所にコピー */
 /* リセットCSS */
 * {
     margin: 0;
@@ -86,17 +85,10 @@ nav {
 
 /* 言語切替 */
 .language-switcher {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 8px;
-    background: rgba(255, 255, 255, 0.95);
-    z-index: 1000;
     display: flex;
     gap: 5px;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 .language-switcher button {
@@ -144,17 +136,14 @@ nav {
 
 @media (max-width: 767px) {
     .language-switcher {
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        padding: 5px;
+        padding: 4px;
+        margin-right: 60px;
     }
 
     .language-switcher button {
-        padding: 5px 10px;
-        min-width: 60px;
-        font-size: 0.8rem;
+        padding: 4px 8px;
+        min-width: 45px;
+        font-size: 0.75rem;
     }
 }
 
@@ -174,6 +163,7 @@ nav {
     background: white;
     padding: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .nav-links a {
@@ -191,11 +181,12 @@ nav {
 
 /* ハンバーガーメニュー */
 .menu-toggle {
-    display: block;
+    display: none;
     background: none;
     border: none;
     padding: 10px;
     cursor: pointer;
+    margin-left: auto;
 }
 
 .menu-toggle span {
@@ -207,12 +198,22 @@ nav {
     transition: all 0.3s ease;
 }
 
+@media (max-width: 767px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
 /* スライダー */
 .hero-slider {
     position: relative;
-    height: 60vh;
+    height: 80vh;
     overflow: hidden;
-    background: #ddd;
+    background: #000;
 }
 
 .slide {
@@ -233,20 +234,86 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: brightness(0.8);
 }
 
 .slide-content {
     position: absolute;
-    bottom: 20%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     text-align: center;
     color: white;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     width: 90%;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 1rem;
+    max-width: 800px;
+    z-index: 2;
+}
+
+.slide-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+}
+
+.slide-content p {
+    font-size: 1.2rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* セクション共通スタイル */
+section {
+    padding: 2rem 0;
+    background: white;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* 店舗写真スライダー */
+.shop-photos {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    background: #ddd;
+    margin-bottom: 2rem;
+}
+
+.photo-slider {
+    height: 100%;
+}
+
+.photo-slider .slide {
+    position: relative;
+    height: 100%;
+}
+
+.photo-slider .slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+/* 歴史セクション */
+.history-image {
+    margin-top: 2rem;
+}
+
+.history-image img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
     border-radius: 4px;
+}
+
+.history-image .caption {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
 }
 
 /* メニューページのスタイル */
@@ -288,32 +355,152 @@ nav {
     font-size: 1.1rem;
 }
 
-/* ニュースページのスタイル */
-.news-list article {
+/* ホームページ専用スタイル */
+.home-notice {
+    background: #f8f8f8;
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-notice::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border-color), transparent);
+}
+
+.notice-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.notice-card {
     background: white;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+/* ホーム画面の店舗情報スタイル */
+.home-info {
+    background: linear-gradient(to bottom, #f8f8f8, white);
+    position: relative;
+}
+
+.home-info .info-content {
+    position: relative;
+    z-index: 1;
+}
+
+.home-info .info-text {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
 }
 
-.news-list article:hover {
-    transform: translateX(5px);
+.home-info .info-text:hover {
+    transform: translateY(-5px);
 }
 
-.news-list time {
-    color: var(--secondary-color);
-    font-size: 0.9rem;
+.home-info .info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
-.category {
-    display: inline-block;
-    padding: 0.2rem 0.8rem;
-    border-radius: 12px;
-    font-size: 0.8rem;
+.home-info .info-section-block {
+    padding: 2rem;
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.home-info .info-section-block:last-child {
+    border-bottom: none;
+}
+
+.home-info .info-section-block h3 {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+}
+
+.home-info .info-section-block p {
+    font-size: 1.1rem;
     margin: 0.5rem 0;
-    background: #f0f0f0;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.home-info .note {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin: 0.3rem 0;
+}
+
+.home-info .facilities-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+}
+
+.home-info .facilities-list li {
+    position: relative;
+    padding-left: 1.2rem;
+    margin: 0.5rem 0;
+    line-height: 1.6;
+}
+
+.home-info .facilities-list li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    color: var(--text-color);
+}
+
+.home-info a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.home-info a:hover {
+    color: var(--primary-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.notice-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+}
+
+.notice-card time {
+    display: inline-block;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.notice-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.notice-card p {
+    color: var(--secondary-color);
+    line-height: 1.6;
 }
 
 /* アクセスページのスタイル */
@@ -335,37 +522,6 @@ nav {
     padding: 1.5rem;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-/* クーポンページのスタイル */
-.coupon-card {
-    background: white;
-    margin: 2rem auto;
-    padding: 2rem;
-    border: 2px dashed var(--accent-color);
-    border-radius: 8px;
-    max-width: 600px;
-    position: relative;
-}
-
-.coupon-card::after {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border: 1px dashed var(--border-color);
-    border-radius: 6px;
-    pointer-events: none;
-}
-
-.discount {
-    font-size: 2rem;
-    text-align: center;
-    color: var(--accent-color);
-    margin: 1rem 0;
-    font-weight: bold;
 }
 
 /* フッター */
