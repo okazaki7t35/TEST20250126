@@ -57,7 +57,25 @@ export const translations = {
         couponNote4: 'スクリーンショットでのご利用も可能です',
         couponNote5: 'クーポンの転用や複製は固くお断りいたします',
         nextCouponInfo1: '3月のクーポンは2月下旬に公開予定です',
-        nextCouponInfo2: 'お楽しみに！'
+        nextCouponInfo2: 'お楽しみに！',
+        // お知らせセクション
+        notice1Title: '営業時間変更のお知らせ',
+        notice1Text: '2月末まで、夜の営業時間を21:00までに変更させていただきます。',
+        notice2Title: '季節の限定メニュー登場',
+        notice2Text: '春の訪れを感じる桜海老のかき揚げそばを期間限定で提供いたします。',
+        // 店舗情報セクション
+        businessHours: '【営業時間】',
+        weekdayHours: '月～土：11:00～14:00 / 18:00～21:30',
+        reservationNote: '※ご予約がない場合20:00閉店',
+        holidayHours: '日曜・祝日：休業',
+        reservationContact: '【ご予約・お問い合わせ】',
+        reservationPhoneOnly: '※ご予約は電話のみ承ります（日本語対応）',
+        facilitiesServices: '【設備・サービス】',
+        parking: '駐車場：10台（無料）',
+        smoking: '喫煙：可',
+        seating: '座席：テーブル席・座敷',
+        privateRoom: '個室：あり（要予約）',
+        takeout: 'テイクアウト：可（電話注文）'
     },
     en: {
         home: 'Home',
@@ -115,7 +133,25 @@ export const translations = {
         couponNote4: 'Screenshots are accepted',
         couponNote5: 'Reproduction or transfer of coupons is strictly prohibited',
         nextCouponInfo1: 'March coupons will be available in late February',
-        nextCouponInfo2: 'Stay tuned!'
+        nextCouponInfo2: 'Stay tuned!',
+        // News section
+        notice1Title: 'Changes in Business Hours',
+        notice1Text: 'Evening business hours will be changed to 21:00 until the end of February.',
+        notice2Title: 'Seasonal Special Menu',
+        notice2Text: 'Limited time offer: Sakura shrimp tempura soba, a taste of spring.',
+        // Information section
+        businessHours: '【Business Hours】',
+        weekdayHours: 'Mon-Sat: 11:00-14:00 / 18:00-21:30',
+        reservationNote: '*Closes at 20:00 without reservations',
+        holidayHours: 'Closed: Sundays & Holidays',
+        reservationContact: '【Reservations & Inquiries】',
+        reservationPhoneOnly: '*Phone reservations only (Japanese available)',
+        facilitiesServices: '【Facilities & Services】',
+        parking: 'Parking: 10 spaces (Free)',
+        smoking: 'Smoking: Allowed',
+        seating: 'Seating: Tables & Tatami rooms',
+        privateRoom: 'Private room: Available (Reservation required)',
+        takeout: 'Takeout: Available (Phone orders)'
     },
     zh: {
         home: '首页',
@@ -173,7 +209,25 @@ export const translations = {
         couponNote4: '可使用截图',
         couponNote5: '严禁复制或转让优惠券',
         nextCouponInfo1: '3月优惠券将于2月下旬公布',
-        nextCouponInfo2: '敬请期待！'
+        nextCouponInfo2: '敬请期待！',
+        // 新闻部分
+        notice1Title: '营业时间变更通知',
+        notice1Text: '到2月底为止，晚间营业时间将调整至21:00',
+        notice2Title: '季节限定菜单上新',
+        notice2Text: '限时供应：樱花虾天妇罗荞麦面，品味春天的气息',
+        // 店铺信息部分
+        businessHours: '【营业时间】',
+        weekdayHours: '周一至周六：11:00～14:00 / 18:00～21:30',
+        reservationNote: '*无预约时20:00结束营业',
+        holidayHours: '周日及节假日休息',
+        reservationContact: '【预约咨询】',
+        reservationPhoneOnly: '*仅接受电话预约（提供日语服务）',
+        facilitiesServices: '【设施服务】',
+        parking: '停车场：10个车位（免费）',
+        smoking: '吸烟：可以',
+        seating: '座位：桌席・榻榻米',
+        privateRoom: '包间：可用（需预约）',
+        takeout: '外带：可以（电话订餐）'
     }
 };
 
